@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IVGuard | Smart IV Safety Monitor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="shield">♡</div>
+      <div>
+        <h1>IVGuard</h1>
+        <p>Smart IV Safety & Early-Warning System</p>
+      </div>
+    </div>
+    <div class="connection"><span id="dot"></span><span id="connectionText">Simulation Mode</span></div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">REAL-TIME IV MONITORING</p>
+        <h2>Monitor. Detect. Alert.</h2>
+        <p>IVGuard continuously checks simulated infusion conditions and gives rule-based warnings when an abnormal condition is detected.</p>
+      </div>
+      <div class="status-card" id="mainStatus">
+        <span class="status-icon">✓</span>
+        <div><strong id="statusTitle">NORMAL FLOW</strong><small id="statusMessage">Infusion is running normally.</small></div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><span>💧</span><label>Flow Rate</label><strong><span id="flow">80</span> <small>mL/h</small></strong></div>
+      <div class="metric"><span>◉</span><label>Line Pressure</label><strong><span id="pressure">120</span> <small>mmHg</small></strong></div>
+      <div class="metric"><span>◒</span><label>Infusion Remaining</label><strong><span id="remaining">60</span><small>%</small></strong></div>
+      <div class="metric"><span>↕</span><label>Line Movement</label><strong><span id="movement">Normal</span></strong></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-title"><h3>IV Line Status</h3><span class="badge" id="modeBadge">SIMULATED</span></div>
+        <div class="tube-wrap">
+          <div class="iv-bag"><div class="bag-label">IV<br>FLUID</div></div>
+          <div class="tube"></div>
+          <div class="sensor-box"><b>IVGuard</b><span>Sensor Module</span><i></i></div>
+          <div class="tube"></div>
+          <div class="patient-line">Patient side</div>
+        </div>
+        <p class="note">Demo only: uses simulated values. Do not connect this prototype to a patient.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>Live Parameters</h3></div>
+        <div class="param"><span>Flow</span><b id="flowState">Normal</b></div>
+        <div class="param"><span>Pressure</span><b id="pressureState">Normal</b></div>
+        <div class="param"><span>Tube condition</span><b id="tubeState">Normal</b></div>
+        <div class="param"><span>Air detection</span><b id="airState">None</b></div>
+        <div class="param"><span>Infusion level</span><b id="levelState">60%</b></div>
+      </div>
+    </section>
+
+    <section class="controls panel">
+      <div class="panel-title">
+        <h3>Test Conditions</h3>
+        <span class="hint">Click to simulate sensor events</span>
+      </div>
+      <div class="buttons">
+        <button data-condition="normal">Normal Flow</button>
+        <button data-condition="reduced">Reduced Flow</button>
+        <button data-condition="kink">Tube Kink</button>
+        <button data-condition="occlusion">Occlusion</button>
+        <button data-condition="air">Air Detected</button>
+        <button data-condition="complete">Infusion Nearly Complete</button>
+        <button data-condition="movement">Sudden Movement</button>
+      </div>
+    </section>
+
+    <section class="panel alerts">
+      <div class="panel-title"><h3>Alert History</h3><button class="clear" id="clearBtn">Clear</button></div>
+      <div id="alertList" class="alert-list"><div class="empty">No alerts yet. Test a condition above.</div></div>
+    </section>
+  </main>
+
+  <footer>IVGuard prototype • Rule-based demonstration • For hackathon demonstration only</footer>
+  <script src="script.js"></script>
+</body>
+</html>
